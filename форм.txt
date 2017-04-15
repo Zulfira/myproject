@@ -1,0 +1,71 @@
+
+sing System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace WindowsFormsApplication1
+{
+    public partial class Form1 : Form
+    {
+
+        private tank tn= new Tank();
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            // Graphics g = e.Graphics;
+            //Graphics h = e.Graphics;
+           // g.DrawRectangle(Pens.Red, TankX, TankY, 20, 30);
+            //h.DrawRectangle(Pens.Green, Tank2X, Tank2Y, 40, 70);
+
+            tank.draw(g);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+
+            tn.moveRorward();
+            
+            this.Refresh();
+
+
+
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == a)
+            {
+                tank.left();
+            }
+            else if (e.KeyCode == d)
+            {
+                tank.right();
+            }
+            else if (e.KeyCode == w)
+            {
+                tank.up();
+            }
+            if (e.KeyCode == s)
+            {
+                tank.down();
+            }
+            
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+    }
+}
